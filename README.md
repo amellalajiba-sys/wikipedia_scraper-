@@ -77,8 +77,8 @@ wikipedia_scraper/
 ├── requirements.txt
 ├── main.py
 ├── dev/
-│   ├── Imad_sandbox.ipynb
-│   └── Hiba_sandbox.ipynb
+│   ├── Imad_notebook.ipynb
+│   └── Hiba_notebook.ipynb
 └── src/
     ├── __init__.py
     ├── api_client.py
