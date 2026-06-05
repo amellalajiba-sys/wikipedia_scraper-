@@ -17,6 +17,57 @@ Then the scraper:
 
 At the end, everything is saved into `leaders.json`.
 
+## How It Works
+
+1. Create an API client instance to communicate with the Country Leaders API.
+2. Retrieve the list of available countries.
+3. Retrieve all leaders for each country.
+4. For every leader, access their Wikipedia page.
+5. Extract the first meaningful paragraph from the page.
+6. Add the extracted paragraph to the leader's data.
+7. Store all results in a dictionary organized by country.
+8. Export the final dataset to a JSON file.
+
+## Architecture
+
+The project follows a simple separation of concerns:
+
+* `CountryLeadersAPI` handles all communication with the API.
+* `WikipediaScraper` handles HTML parsing and data extraction.
+* `main.py` orchestrates the workflow.
+* `leaders.json` stores the final output.
+
+This structure keeps the code modular and easier to maintain.
+
+
+
+## Visuals (Data flow)
+
+
+```text
+Country Leaders API
+        │
+        ▼
+ Get Countries
+        │
+        ▼
+  Get Leaders
+        │
+        ▼
+ Wikipedia URLs
+        │
+        ▼
+ Wikipedia Scraper
+        │
+        ▼
+ First Paragraph
+        │
+        ▼
+   leaders.json
+```
+
+
+
 ## Project structure
 
 ```text
@@ -26,8 +77,8 @@ wikipedia_scraper/
 ├── requirements.txt
 ├── main.py
 ├── dev/
-│   ├── student_a_sandbox.ipynb
-│   └── student_b_sandbox.ipynb
+│   ├── Imad_sandbox.ipynb
+│   └── Hiba_sandbox.ipynb
 └── src/
     ├── __init__.py
     ├── api_client.py
@@ -119,7 +170,13 @@ Example:
     "first_paragraph": "François Hollande, né le 12 août 1954 à Rouen..."
 }
 ```
+## Challenges
+
+- Understanding how the API cookie system works.
+- Finding the first meaningful paragraph on Wikipedia pages.
+- Cleaning the scraped text while preserving readability.
+
 
 ## Authors
 
-Made as part of a Becode project, in this both me and Hiba
+Made as part of a Becode project, in this both Imad and Hiba
