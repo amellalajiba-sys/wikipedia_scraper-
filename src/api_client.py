@@ -40,7 +40,7 @@ class CountryLeadersAPI:
         #We call leaders: with a cookie and with a url parameter like ?country=fr.
         response = requests.get(self.leaders_url, cookies=self.cookies, params={"country": country})
 
-        .
+        
         if response.status_code != 200:
             #If the request fails, with retry it with a fresh cookie.
             self.refresh_cookie()
